@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>كبابجي المصطفى</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="كبابجي المصطفى، الرئيسية">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-copy"><strong>كبابجي المصطفى</strong><small>مشويات على الأصول</small></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">كبابجي المصطفى</p>
+          <h1>الطعم الأصيل<br><strong>للمشويات</strong></h1>
+          <p class="hero-sub">من قلب بدر.. على أصوله</p>
+          <a href="#popular" class="primary-btn">اطلب الآن <b>←</b></a>
+        </div>
+      </section>
+
+      <section class="offers-section" id="offers">
+        <div class="offers-heading">
+          <div><p>اختيارات مميزة</p><h2>العروض والخصومات</h2></div>
+          <div class="offers-heading-actions">
+            <a href="#popular">كل الأصناف ←</a>
+            <button class="offers-next" id="nextOffer" type="button" aria-label="العرض التالي" title="العرض التالي">←</button>
+            <button class="offers-motion-toggle" id="offersMotionToggle" type="button" aria-label="إيقاف حركة العروض" aria-pressed="false" title="إيقاف حركة العروض">Ⅱ</button>
+          </div>
+        </div>
+        <div class="offers-grid" id="offersGrid" role="region" aria-label="عروض المطعم" aria-live="off" tabindex="0"></div>
+      </section>
+
+      <section class="categories-section">
+        <div class="categories" id="categories"></div>
+      </section>
+
+      <section class="section" id="popular">
+        <div class="section-heading">
+          <h2>قائمة الطعام</h2>
+          <button id="clearFilter">عرض الكل</button>
+        </div>
+        <div class="products" id="products"></div>
+      </section>
+
+      <section class="trays-banner">
+        <div class="trays-copy">
+          <h2>صواني المشويات</h2>
+          <p>لمّة العيلة بطعم أصلي</p>
+          <button onclick="filterCategory('الصواني')">شوف الصواني <span>←</span></button>
+        </div>
+        <div class="tray-decoration">🍢</div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-heading">
+          <p>مستنيين زيارتكم</p>
+          <h2>قيّمنا وتواصل معنا</h2>
+        </div>
+        <div class="contact-content">
+          <div class="map-rating">
+            <span class="map-rating-label">تقييمنا على Google Maps</span>
+            <strong>3.0 <span aria-label="نجوم">★</span></strong>
+            <a href="https://www.google.com/maps/place/%D9%83%D8%A8%D8%A7%D8%A8%D8%AC%D9%8A+%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%81%D9%89%E2%80%AD/@30.1590533,31.7099618,17z/data=!3m1!4b1!4m6!3m5!1s0x1457f1fddbc54c9f:0xd2aa610b2111fcac!8m2!3d30.1590533!4d31.7099618!16s%2Fg%2F11ntpwswgz" target="_blank" rel="noopener noreferrer">اكتب تقييمك على خرائط Google ↗</a>
+          </div>
+          <div class="contact-details">
+            <p><strong>العنوان</strong><span>المشي السياحي، بدر، محافظة القاهرة</span></p>
+            <p><strong>الهاتف</strong><a href="tel:+201039739705" dir="ltr">010 39739705</a></p>
+            <div class="contact-actions">
+              <a class="facebook-link" href="https://www.facebook.com/people/%D9%83%D8%A8%D8%A7%D8%A8%D8%AC%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B7%D9%81%D9%8A/61590292845506/" target="_blank" rel="noopener noreferrer" aria-label="صفحة كبابجي المصطفى الرسمية على Facebook">Facebook</a>
+              <a class="admin-link" href="admin.html">إدارة المطعم</a>
+              <a class="whatsapp-link" href="https://wa.me/201039739705" target="_blank" rel="noopener noreferrer">واتساب</a>
+              <a class="call-link" href="tel:+201039739705">اتصال</a>
+              <a class="directions-link" href="https://www.google.com/maps/dir/?api=1&destination=30.1590533%2C31.7099618" target="_blank" rel="noopener noreferrer">الاتجاهات</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-space"></div>
+    </main>
+
+    <nav class="bottom-nav">
+      <button data-nav="account"><span>♙</span><small>حسابي</small></button>
+      <button data-nav="cart" class="cart-nav"><span>🛒</span><i id="cartCount">0</i><small>السلة</small></button>
+      <button data-nav="home" class="active"><span>⌂</span><small>الرئيسية</small></button>
+      <button data-nav="search"><span>⌕</span><small>بحث</small></button>
+      <button data-nav="menu"><span>☰</span><small>القائمة</small></button>
+    </nav>
+  </div>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer-head">
+      <h3>القائمة</h3>
+      <button id="closeDrawer">×</button>
+    </div>
+    <button onclick="filterCategory('الشوربة'); closeDrawer()">🍲 الشوربة</button>
+    <button onclick="filterCategory('المقبلات'); closeDrawer()">🥗 المقبلات</button>
+    <button onclick="filterCategory('المشويات'); closeDrawer()">🍢 المشويات</button>
+    <button onclick="filterCategory('الجريل'); closeDrawer()">🔥 الجريل</button>
+    <button onclick="filterCategory('السلطات'); closeDrawer()">🥬 السلطات</button>
+    <button onclick="filterCategory('الطواجن'); closeDrawer()">🍲 الطواجن</button>
+    <button onclick="filterCategory('الأطباق الرئيسية'); closeDrawer()">🍽️ الأطباق الرئيسية</button>
+    <button onclick="filterCategory('الصواني'); closeDrawer()">🍱 الصواني</button>
+    <button onclick="filterCategory('الوجبات الاقتصادية'); closeDrawer()">💰 الوجبات الاقتصادية</button>
+    <button onclick="filterCategory('السندوتشات'); closeDrawer()">🥪 السندوتشات</button>
+    <button onclick="filterCategory('المشروبات'); closeDrawer()">🥤 المشروبات</button>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <div class="search-modal" id="searchModal" hidden>
+    <form class="search-panel" id="searchForm" role="search">
+      <label for="searchInput">ابحث عن صنف</label>
+      <div class="search-controls">
+        <input id="searchInput" type="search" placeholder="مثال: كباب مشوي" autocomplete="off">
+        <button type="submit" aria-label="بحث">⌕</button>
+        <button type="button" id="closeSearch" aria-label="إغلاق البحث">×</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="cart-toast" id="cartToast" role="status" aria-live="polite"></div>
+
+  <div class="cart-modal" id="cartModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>سلة الطلب</h3>
+        <button id="closeCart">×</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="rewards-panel">
+        <div class="loyalty-contact">
+          <label for="customerName">الاسم</label>
+          <input id="customerName" type="text" autocomplete="name" placeholder="اسم صاحب الطلب">
+          <label for="customerPhone">رقم الهاتف للنقاط والطلب</label>
+          <input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx">
+          <p id="customerMessage" class="rewards-message" role="status" aria-live="polite">اكتب رقم هاتفك لعرض رصيد نقاطك.</p>
+        </div>
+        <form class="coupon-form" id="couponForm">
+          <label for="couponCode">كود الخصم</label>
+          <div class="coupon-controls">
+            <input id="couponCode" type="text" placeholder="اكتب الكود" autocomplete="off">
+            <button type="submit">تطبيق</button>
+          </div>
+          <p id="couponCodesHint" class="rewards-message"></p>
+          <p id="couponMessage" class="rewards-message" role="status" aria-live="polite">أدخل كود الخصم لتطبيقه على الطلب.</p>
+        </form>
+        <div class="points-controls">
+          <label for="pointsInput">استخدم نقاطك</label>
+          <p id="pointsBalanceText" class="points-balance"></p>
+          <div class="coupon-controls">
+            <input id="pointsInput" type="number" min="0" step="1" value="0" inputmode="numeric">
+            <button type="button" id="useMaxPoints">استخدم الكل</button>
+          </div>
+          <p class="rewards-message">كل نقطة تخصم ٢ ج.م من قيمة الطلب.</p>
+        </div>
+      </div>
+      <div class="cart-breakdown">
+        <div><span>قيمة الأصناف</span><strong id="cartSubtotal">0 ج.م</strong></div>
+        <div><span>خصم الكود</span><strong id="couponDiscount">0 ج.م</strong></div>
+        <div><span>خصم النقاط</span><strong id="pointsDiscount">0 ج.م</strong></div>
+        <div class="points-earned-row"><span>نقاط هذا الطلب المتوقعة</span><strong id="pointsEarned">0 نقطة</strong></div>
+      </div>
+      <div class="cart-total">
+        <span>المبلغ المطلوب</span>
+        <strong id="cartTotal">0 ج.م</strong>
+      </div>
+      <button class="checkout" id="checkout" type="button">متابعة بيانات الطلب</button>
+    </div>
+  </div>
+
+  <div class="order-modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle" hidden>
+    <form class="order-form" id="orderForm">
+      <div class="modal-head">
+        <h3 id="orderModalTitle">بيانات الطلب</h3>
+        <button type="button" id="closeOrder" aria-label="العودة للسلة">×</button>
+      </div>
+      <p class="order-customer" id="orderCustomer"></p>
+      <fieldset class="order-type">
+        <legend>طريقة الطلب</legend>
+        <label><input type="radio" name="orderType" value="dinein" checked><span>صالة</span></label>
+        <label><input type="radio" name="orderType" value="delivery"><span>دليفري</span></label>
+      </fieldset>
+      <div id="dineInFields">
+        <label for="tableNumber">رقم الترابيزة</label>
+        <input id="tableNumber" type="text" inputmode="numeric" placeholder="رقم الترابيزة" required>
+      </div>
+      <div id="deliveryFields" hidden>
+        <label for="deliveryAddress">عنوان التوصيل بالتفصيل</label>
+        <textarea id="deliveryAddress" rows="3" autocomplete="street-address" placeholder="المنطقة، الشارع، رقم العقار، وأقرب علامة مميزة" required></textarea>
+        <p class="delivery-fee-note">رسوم التوصيل: <strong id="deliveryFeeLabel">٣٠ ج.م</strong></p>
+      </div>
+      <label for="orderNotes">ملاحظات مع الطلب <span>(اختياري)</span></label>
+      <textarea id="orderNotes" rows="3" placeholder="أي تفاصيل أو طلبات خاصة"></textarea>
+      <div class="order-summary">
+        <div id="deliverySummaryRow" hidden><span>التوصيل</span><strong id="deliverySummary">0 ج.م</strong></div>
+        <div><span>الإجمالي شامل التوصيل</span><strong id="orderGrandTotal">0 ج.م</strong></div>
+        <p id="orderPointsPreview"></p>
+      </div>
+      <div class="order-actions">
+        <button type="button" class="back-to-cart" id="backToCart">رجوع للسلة</button>
+        <button type="submit" class="checkout">تأكيد وإرسال عبر واتساب</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

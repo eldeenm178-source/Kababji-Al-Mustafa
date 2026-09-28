@@ -1,0 +1,98 @@
+*{box-sizing:border-box}
+:root{--admin-bg:#11100e;--admin-surface:#1b1a17;--admin-surface-2:#22211d;--admin-border:#38362f;--admin-text:#f5f1e9;--admin-muted:#aaa59a;--admin-accent:#e84b2a;--admin-green:#75c99a;--admin-danger:#f07b71}
+[hidden]{display:none!important}
+body{min-height:100vh;margin:0;background:radial-gradient(ellipse at 90% 0%,#342219 0,transparent 32%),var(--admin-bg);color:var(--admin-text);font-family:"Cairo",sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.admin-shell{width:min(100% - 32px,1280px);margin:0 auto;padding:24px 0 18px}
+.admin-header,.admin-brand,.header-actions,.welcome-row,.panel-heading,.editor-heading,.variants-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.admin-header{padding-bottom:20px;border-bottom:1px solid var(--admin-border)}
+.admin-brand{justify-content:flex-start;gap:11px;text-decoration:none}
+.brand-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--admin-accent);font-size:24px;font-weight:900}
+.admin-brand strong,.admin-brand small{display:block}
+.admin-brand strong{font-size:15px}
+.admin-brand small{margin-top:1px;color:var(--admin-muted);font-size:11px}
+.header-actions{justify-content:flex-end;flex-wrap:wrap}
+.store-link,.icon-button,.secondary-button,.text-button,.danger-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:8px 14px;border:1px solid var(--admin-border);border-radius:9px;background:var(--admin-surface-2);color:var(--admin-text);font-weight:700;text-decoration:none}
+.store-link{border-color:#79402e;color:#ffc1ad}
+.primary-button{border-color:var(--admin-accent);background:var(--admin-accent);color:#fff}
+.secondary-button{color:#ffc1ad}
+.text-button{min-height:34px;padding:5px 9px;background:transparent;font-size:12px}
+.danger-button{border-color:#733831;background:#38201e;color:#ffaaa2}
+button:hover,.store-link:hover{filter:brightness(1.13)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #ff9b7c;outline-offset:2px}
+.auth-wrap{display:grid;min-height:calc(100vh - 150px);place-items:center;padding:28px 0}
+.auth-panel{width:min(100%,430px);padding:30px;border:1px solid var(--admin-border);border-radius:16px;background:rgba(27,26,23,.96);box-shadow:0 24px 70px #0008}
+.panel-kicker{color:#ff9b7c;font-size:12px;font-weight:800}
+.auth-panel h1,.welcome-row h1{margin:5px 0 4px;font-size:26px;line-height:1.4}
+.auth-panel>p,.welcome-row>p,.panel-heading p{margin:0;color:var(--admin-muted);font-size:12px;line-height:1.7}
+.auth-panel label,.editor-form>label,.password-dialog label,.coupon-editor label{display:block;margin:15px 0 6px;font-size:12px;font-weight:800}
+input,select,textarea{width:100%;min-width:0;padding:10px 11px;border:1px solid #46443d;border-radius:8px;background:#111;color:var(--admin-text)}
+input::placeholder,textarea::placeholder{color:#77736c}
+.auth-panel small{display:block;margin-top:6px;color:var(--admin-muted);font-size:11px}
+.form-message{min-height:20px;margin:8px 0;color:#ffb39f;font-size:12px}
+.auth-panel .primary-button{width:100%;margin-top:8px}
+.dashboard{padding-top:26px}
+.welcome-row{align-items:flex-end;margin-bottom:18px}
+.welcome-row>p{max-width:420px;text-align:left}
+.stat-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.stat-strip>div{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 15px;border:1px solid var(--admin-border);border-radius:10px;background:var(--admin-surface)}
+.stat-strip span{color:var(--admin-muted);font-size:12px}
+.stat-strip strong{font-size:20px}
+.admin-tabs{display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--admin-border)}
+.admin-tabs button{flex:0 0 auto;padding:12px 17px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--admin-muted);font-weight:800}
+.admin-tabs button.active{border-bottom-color:var(--admin-accent);color:#fff}
+.admin-panel{padding:22px 0}
+.panel-heading{align-items:flex-end;margin-bottom:16px}
+.panel-heading h2{margin:0 0 3px;font-size:20px}
+.product-tools{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:10px;margin-bottom:14px}
+.product-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;align-items:start;gap:16px}
+.product-list,.offer-admin-list,.coupon-admin-list{display:grid;gap:9px;align-content:start}
+.admin-product,.offer-admin-card,.coupon-admin-card{padding:14px;border:1px solid var(--admin-border);border-radius:10px;background:var(--admin-surface)}
+.admin-product{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px}
+.admin-product h3{margin:0;font-size:14px}
+.admin-product p{margin:3px 0 0;color:var(--admin-muted);font-size:11px}
+.admin-product-actions{display:flex;align-items:center;gap:7px}
+.price-badge,.category-badge{display:inline-block;padding:3px 8px;border-radius:14px;background:#30271f;color:#ffbd9e;font-size:11px;font-weight:800;white-space:nowrap}
+.category-badge{margin-inline-start:5px;background:#2b2a25;color:#c7c0b4;font-weight:600}
+.editor-form{position:sticky;top:14px;padding:17px;border:1px solid var(--admin-border);border-radius:12px;background:var(--admin-surface)}
+.editor-heading{margin-bottom:4px}
+.editor-heading h2,.editor-heading h3{margin:0;font-size:17px}
+.image-preview-wrap{display:flex;align-items:center;gap:12px;margin-top:10px;padding:9px;border:1px solid var(--admin-border);border-radius:9px;background:#141310}
+.image-preview-wrap img{width:76px;height:64px;border-radius:7px;object-fit:cover;background:#28251f}
+.variants-heading{align-items:center;margin-top:17px}
+.variants-heading strong,.variants-heading small{display:block}
+.variants-heading strong{font-size:12px}
+.variants-heading small{color:var(--admin-muted);font-size:10px}
+.variant-list{display:grid;gap:7px;margin-top:9px}
+.variant-row{display:grid;grid-template-columns:minmax(0,1fr) 100px 34px;gap:6px}
+.variant-row button{border:1px solid #653832;border-radius:7px;background:#351f1c;color:#ffaaa2}
+.check-row{display:flex!important;align-items:center;gap:9px;margin-top:16px!important}
+.check-row input,.offer-featured input,.coupon-enabled input{width:17px;height:17px;accent-color:var(--admin-accent)}
+.form-submit{width:100%;margin-top:11px}
+.offer-search{margin-bottom:12px}
+.wide-search{max-width:420px;margin-bottom:13px}
+.offer-admin-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;align-items:center;gap:12px}
+.offer-admin-title strong,.offer-admin-title small{display:block}
+.offer-admin-title strong{font-size:13px}
+.offer-admin-title small{margin-top:2px;color:var(--admin-muted);font-size:10px}
+.offer-featured,.coupon-enabled{display:flex;align-items:center;gap:7px;color:#d9d4ca;font-size:11px;white-space:nowrap}
+.offer-price-controls{display:grid;grid-template-columns:100px minmax(70px,1fr);gap:6px}
+.offer-price-controls select,.offer-price-controls input{padding:7px;font-size:11px}
+.offer-save{min-height:34px;padding:5px 10px;font-size:11px}
+.coupon-editor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:end;gap:0 12px;max-width:760px;margin:14px 0 22px;padding:16px;border:1px solid var(--admin-border);border-radius:11px;background:var(--admin-surface)}
+.coupon-editor label{margin-top:8px}
+.coupon-editor .primary-button{grid-column:1/-1;margin-top:14px}
+.coupon-admin-card{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px}
+.coupon-admin-card strong{font-size:14px;letter-spacing:.3px}
+.coupon-admin-card small{display:block;margin-top:2px;color:var(--admin-muted);font-size:11px}
+.empty-state{padding:24px;border:1px dashed #4a463d;border-radius:10px;color:var(--admin-muted);text-align:center;font-size:13px}
+.password-dialog{width:min(calc(100% - 32px),440px);padding:22px;border:1px solid var(--admin-border);border-radius:14px;background:#1b1a17;color:var(--admin-text)}
+.password-dialog::backdrop{background:#000b;backdrop-filter:blur(3px)}
+.password-dialog form>button{width:100%}
+.admin-toast{position:fixed;right:50%;bottom:22px;z-index:20;max-width:calc(100% - 32px);padding:10px 16px;border:1px solid #48443a;border-radius:9px;background:#24221d;color:var(--admin-text);font-size:12px;opacity:0;transform:translate(50%,10px);pointer-events:none;transition:opacity .18s,transform .18s}
+.admin-toast.show{opacity:1;transform:translate(50%,0)}
+.admin-footnote{padding:18px 0 4px;color:#878176;font-size:10px;line-height:1.7;text-align:center}
+@media(max-width:850px){.product-layout{grid-template-columns:1fr}.editor-form{position:static}.offer-admin-card{grid-template-columns:minmax(0,1fr) auto}.offer-price-controls{grid-column:1/-1}.offer-save{grid-column:1/-1}}
+@media(max-width:560px){.admin-shell{width:min(100% - 22px,1280px);padding-top:14px}.admin-header{align-items:flex-start}.admin-brand{gap:8px}.brand-mark{width:38px;height:38px}.admin-brand strong{font-size:13px}.header-actions{gap:5px}.store-link,.icon-button{min-height:35px;padding:6px 9px;font-size:10px}.welcome-row{align-items:flex-start;flex-direction:column;gap:5px}.welcome-row h1{font-size:22px}.welcome-row>p{text-align:right}.stat-strip{gap:6px}.stat-strip>div{align-items:flex-start;flex-direction:column;padding:9px}.stat-strip span{font-size:10px}.stat-strip strong{font-size:17px}.admin-tabs button{padding:11px 12px;font-size:12px}.panel-heading{align-items:flex-start}.panel-heading h2{font-size:17px}.panel-heading p{max-width:220px}.product-tools{grid-template-columns:1fr}.admin-product{padding:11px}.admin-product-actions{flex-direction:column;align-items:stretch}.coupon-editor{grid-template-columns:1fr}.coupon-editor .primary-button{grid-column:auto}.coupon-admin-card{grid-template-columns:minmax(0,1fr) auto}.coupon-admin-card .danger-button{grid-column:1/-1}.auth-panel{padding:23px}.auth-panel h1{font-size:23px}}

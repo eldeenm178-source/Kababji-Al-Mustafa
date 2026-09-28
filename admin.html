@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151310">
+  <title>إدارة كبابجي المصطفى</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-header">
+      <a class="admin-brand" href="index.html"><span class="brand-mark">م</span><span><strong>كبابجي المصطفى</strong><small>لوحة إدارة المطعم</small></span></a>
+      <div class="header-actions">
+        <a class="store-link" href="index.html">عرض الموقع ↗</a>
+        <button class="icon-button" id="changePasswordButton" type="button" hidden>تغيير كلمة المرور</button>
+        <button class="icon-button" id="logoutButton" type="button" hidden>قفل اللوحة</button>
+      </div>
+    </header>
+
+    <section class="auth-wrap" id="authScreen">
+      <form class="auth-panel" id="authForm">
+        <span class="panel-kicker">إدارة المطعم</span>
+        <h1 id="authTitle">دخول الإدارة</h1>
+        <p id="authDescription">أدخل كلمة مرور لوحة الإدارة.</p>
+        <label for="adminPassword">كلمة المرور</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" minlength="8" required>
+        <div id="confirmPasswordGroup" hidden>
+          <label for="confirmAdminPassword">تأكيد كلمة المرور</label>
+          <input id="confirmAdminPassword" type="password" autocomplete="new-password" minlength="8">
+          <small>اختر كلمة مرور لا تقل عن ٨ أحرف.</small>
+        </div>
+        <p class="form-message" id="authMessage" role="status" aria-live="polite"></p>
+        <button class="primary-button" id="authSubmit" type="submit">دخول</button>
+      </form>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <div class="welcome-row">
+        <div><span class="panel-kicker">لوحة التحكم</span><h1>إدارة المنيو والعروض</h1></div>
+        <p id="saveStatus" role="status" aria-live="polite">التعديلات محفوظة على هذا المتصفح.</p>
+      </div>
+
+      <div class="stat-strip">
+        <div><span>الأصناف</span><strong id="productCount">0</strong></div>
+        <div><span>أصناف العروض</span><strong id="featuredCount">0</strong></div>
+        <div><span>أكواد فعالة</span><strong id="couponCount">0</strong></div>
+      </div>
+
+      <nav class="admin-tabs" aria-label="أقسام لوحة الإدارة">
+        <button type="button" class="active" data-panel="productsPanel">المنتجات والأسعار</button>
+        <button type="button" data-panel="offersPanel">العروض</button>
+        <button type="button" data-panel="couponsPanel">أكواد الخصم</button>
+      </nav>
+
+      <section class="admin-panel active" id="productsPanel">
+        <div class="panel-heading"><div><h2>المنتجات والأسعار</h2><p>أضف صنفًا أو عدّل بياناته وأسعاره وأوزانه.</p></div><button class="primary-button" id="newProductButton" type="button">＋ صنف جديد</button></div>
+        <div class="product-tools">
+          <input id="productSearch" type="search" placeholder="ابحث باسم الصنف">
+          <select id="productCategoryFilter" aria-label="تصفية حسب القسم"></select>
+        </div>
+        <div class="product-layout">
+          <div class="product-list" id="productList"></div>
+          <form class="editor-form" id="productForm" hidden>
+            <div class="editor-heading"><h3 id="productFormTitle">صنف جديد</h3><button type="button" class="text-button" id="cancelProductEdit">إلغاء</button></div>
+            <input id="productId" type="hidden">
+            <label for="productName">اسم الصنف</label>
+            <input id="productName" type="text" required maxlength="90">
+            <label for="productCategory">القسم</label>
+            <select id="productCategory" required></select>
+            <label for="productPrice">السعر الأساسي بالجنيه</label>
+            <input id="productPrice" type="number" min="0" step="0.01" required>
+            <label for="productImageFile">صورة الصنف</label>
+            <input id="productImageFile" type="file" accept="image/jpeg,image/png,image/webp">
+            <div class="image-preview-wrap" id="imagePreviewWrap" hidden>
+              <img id="productImagePreview" alt="معاينة صورة الصنف">
+              <button type="button" class="text-button" id="removeProductImage">إزالة الصورة</button>
+            </div>
+            <label for="productImage">أو مسار صورة موجودة بالموقع</label>
+            <input id="productImage" type="text" placeholder="images/kebab-photo.jpg">
+            <label for="productDescription">الوصف والمكونات</label>
+            <textarea id="productDescription" rows="4"></textarea>
+            <div class="variants-heading"><div><strong>الأوزان والأسعار المتعددة</strong><small>اختياري للأصناف ذات الأحجام.</small></div><button type="button" class="secondary-button" id="addVariantButton">＋ إضافة وزن</button></div>
+            <div class="variant-list" id="variantList"></div>
+            <label class="check-row"><input id="productFeatured" type="checkbox"><span>إظهار الصنف في شريط العروض</span></label>
+            <button class="primary-button form-submit" type="submit">حفظ الصنف</button>
+            <button class="danger-button form-submit" id="deleteProductButton" type="button" hidden>حذف الصنف</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-panel" id="offersPanel" hidden>
+        <div class="panel-heading"><div><h2>العروض</h2><p>اختر ما يظهر في شريط العروض وحدد خصمًا حقيقيًا على سعره.</p></div></div>
+        <input class="wide-search" id="offerSearch" type="search" placeholder="ابحث عن صنف لإضافته للعروض">
+        <div class="offer-admin-list" id="offerAdminList"></div>
+      </section>
+
+      <section class="admin-panel" id="couponsPanel" hidden>
+        <div class="panel-heading"><div><h2>أكواد الخصم</h2><p>أنشئ أكوادًا بنسبة مئوية أو خصم ثابت بالجنيه.</p></div></div>
+        <form class="coupon-editor" id="couponForm">
+          <label for="couponName">كود الخصم</label><input id="couponName" type="text" placeholder="مثال: EID15" maxlength="24" required>
+          <label for="couponType">نوع الخصم</label><select id="couponType"><option value="percent">نسبة مئوية</option><option value="fixed">مبلغ ثابت</option></select>
+          <label for="couponValue">قيمة الخصم</label><input id="couponValue" type="number" min="0.01" step="0.01" required>
+          <label for="couponLabel">الاسم الظاهر للعميل</label><input id="couponLabel" type="text" placeholder="خصم ١٥٪">
+          <button class="primary-button" type="submit">إضافة كود</button>
+        </form>
+        <div class="coupon-admin-list" id="couponAdminList"></div>
+      </section>
+    </section>
+
+    <dialog class="password-dialog" id="passwordDialog">
+      <form id="passwordChangeForm" method="dialog">
+        <div class="editor-heading"><h2>تغيير كلمة المرور</h2><button type="button" class="text-button" id="closePasswordDialog">إغلاق</button></div>
+        <label for="currentAdminPassword">كلمة المرور الحالية</label><input id="currentAdminPassword" type="password" autocomplete="current-password" required>
+        <label for="newAdminPassword">كلمة المرور الجديدة</label><input id="newAdminPassword" type="password" autocomplete="new-password" minlength="8" required>
+        <label for="newAdminPasswordConfirm">تأكيد كلمة المرور الجديدة</label><input id="newAdminPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required>
+        <p id="passwordChangeMessage" class="form-message" role="status"></p>
+        <button class="primary-button" type="submit">حفظ كلمة المرور</button>
+      </form>
+    </dialog>
+
+    <div class="admin-toast" id="adminToast" role="status" aria-live="polite"></div>
+    <footer class="admin-footnote">تُحفظ البيانات على نفس المتصفح والنطاق. للنشر الآمن وإدارة مشتركة بين الأجهزة، يلزم ربط اللوحة بخادم وقاعدة بيانات.</footer>
+  </main>
+  <script src="js/catalog.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
